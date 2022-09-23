@@ -2,8 +2,11 @@ package com.todoapp;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class JavaFrame extends JFrame {
+public class JavaFrame extends JFrame implements ActionListener {
+
     JFrame frame; //variable declaration
     String path = "Images/icon.png";
     String add_path = "Images/plus.png";
@@ -41,12 +44,15 @@ public class JavaFrame extends JFrame {
 
         add_button = new JButton(add_logo);
         add_button.setBounds(20,20,70,70);
+        add_button.addActionListener(this);
 
         delete_button = new JButton(delete_logo);
         delete_button.setBounds(20,110,70,70);
+        delete_button.addActionListener(this);
 
         badges_button= new JButton(badges_logo);
         badges_button.setBounds(20,200,70,70);
+        badges_button.addActionListener(this);
 
         title_label = new JLabel(); //create instance of JLabel
         title_label.setText("Get More Done with Digital Intelligence!"); //set text to JLabel
@@ -57,10 +63,25 @@ public class JavaFrame extends JFrame {
         option_panel.add(add_button);
         option_panel.add(delete_button);
         option_panel.add(badges_button);
+
         this.add(option_panel);
         this.add(title_panel); //adding title_panel to JFrame
 
         this.setResizable(false); //don't allow to expand screen
         this.setVisible(true); //actually display JFrame on device
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource()==add_button)
+        {
+            System.out.println("Button is activated");
+        }
+        else if (e.getSource()==delete_button) {
+            System.out.println("Delete Button Activated.");
+        }
+        else if(e.getSource()==badges_button){
+            System.out.println("Badges button is activated");
+        }
     }
 }

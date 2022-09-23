@@ -1,9 +1,10 @@
 package com.todoapp;
 
-public class Main {
+public class Main{
+    JavaFrame frame;
     public static void main(String[] args) {
 
-        JavaFrame myFrame = new JavaFrame();
+        new JavaFrame();
 
     }
 }
