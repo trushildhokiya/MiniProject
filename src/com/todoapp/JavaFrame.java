@@ -7,6 +7,8 @@ import java.awt.event.ActionListener;
 
 public class JavaFrame extends JFrame implements ActionListener {
 
+    public static int tasks_done =0;
+
     JFrame frame; //variable declaration
     String path = "Images/icon.png";
     String add_path = "Images/plus.png";
@@ -76,7 +78,7 @@ public class JavaFrame extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==add_button) //if add button is selected
         {
-            System.out.println("Button is activated");
+            tasks_done++;
         }
         else if (e.getSource()==delete_button)  //if delete button is selected
         {
