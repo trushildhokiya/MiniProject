@@ -78,7 +78,11 @@ public class JavaFrame extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==add_button) //if add button is selected
         {
-            tasks_done++;
+            JavaFrame.tasks_done= JavaFrame.tasks_done +1;
+            if(JavaFrame.tasks_done==10)
+            {
+                UserBadges.displaybadge_10();
+            }
         }
         else if (e.getSource()==delete_button)  //if delete button is selected
         {

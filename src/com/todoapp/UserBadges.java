@@ -28,18 +28,18 @@ public class UserBadges extends JFrame {
         novice_badge_label.setBounds(50,50,130,120);
         novice_badge_label.setIcon(novice_badge);
 
-        badges_panel.add(novice_badge_label);
+
         this.add(badges_panel);
 
         this.setVisible(true);
         displaybadge_10();
     }
 
-    public void displaybadge_10()
+    static public void displaybadge_10()
     {
         if(JavaFrame.tasks_done == 10)
         {
-
+            System.out.println("done");
         }
     }
 
