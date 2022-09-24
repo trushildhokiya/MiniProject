@@ -78,13 +78,13 @@ public class JavaFrame extends JFrame implements ActionListener {
         {
             System.out.println("Button is activated");
         }
-        else if (e.getSource()==delete_button)  //id delete button is selected
+        else if (e.getSource()==delete_button)  //if delete button is selected
         {
             System.out.println("Delete Button Activated.");
         }
         else if(e.getSource()==badges_button) //if badges button is selected
         {
-            System.out.println("Badges button is activated");
+            new UserBadges();
         }
     }
 }
