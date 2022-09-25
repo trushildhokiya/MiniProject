@@ -28,7 +28,7 @@ public class UserBadges extends JFrame {
         novice_badge_label.setBounds(50,50,130,120);
         novice_badge_label.setIcon(novice_badge);
 
-
+        badges_panel.add(novice_badge_label);
         this.add(badges_panel);
 
         this.setVisible(true);

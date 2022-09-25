@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class JavaFrame extends JFrame implements ActionListener {
-
+    String task;
     public static int tasks_done =0;
 
     JFrame frame; //variable declaration
@@ -25,6 +25,7 @@ public class JavaFrame extends JFrame implements ActionListener {
     JButton add_button;
     JButton delete_button;
     JButton badges_button;
+    JPanel add_panel;
 
     JavaFrame() //constructor of class Java Frame
     {
@@ -66,6 +67,12 @@ public class JavaFrame extends JFrame implements ActionListener {
         option_panel.add(delete_button); //adding delete button to option panel
         option_panel.add(badges_button); //adding badges button to option panel
 
+        add_panel = new JPanel();
+        add_panel.setBounds(0,100,770,750);
+        add_panel.setBackground(new Color(100,110,220));
+        add_panel.setLayout(null);
+
+        this.add(add_panel);
         this.add(option_panel); //adding option panel to frame
         this.add(title_panel); //adding title_panel to JFrame
 
@@ -78,6 +85,8 @@ public class JavaFrame extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==add_button) //if add button is selected
         {
+            task=JOptionPane.showInputDialog("Enter task to enter: ");
+            add_task();
             JavaFrame.tasks_done= JavaFrame.tasks_done +1;
             if(JavaFrame.tasks_done==10)
             {
@@ -92,5 +101,12 @@ public class JavaFrame extends JFrame implements ActionListener {
         {
             new UserBadges();
         }
+    }
+
+    public void add_task()
+    {
+        JButton newbutton = new JButton("Hello");
+        newbutton.setBounds(0,0,100,100);
+        add_panel.add(newbutton);
     }
 }
