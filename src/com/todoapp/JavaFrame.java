@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class JavaFrame extends JFrame implements ActionListener {
+    static int y_coordinate=0;
     String task;
     public static int tasks_done =0;
 
@@ -105,8 +106,11 @@ public class JavaFrame extends JFrame implements ActionListener {
 
     public void add_task()
     {
-        JButton newbutton = new JButton("Hello");
-        newbutton.setBounds(0,0,100,100);
+        JButton newbutton = new JButton(task);
+        newbutton.setBounds(0,JavaFrame.y_coordinate,350,100);
+        JavaFrame.y_coordinate=JavaFrame.y_coordinate+100;
         add_panel.add(newbutton);
+        add_panel.revalidate();
+        add_panel.repaint();
     }
 }
