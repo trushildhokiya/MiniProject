@@ -42,6 +42,7 @@ public class UserBadges extends JFrame {
         master_badge_Label.setIcon(master_badge);
         master_badge_Label.setVisible(false);
 
+        badges_panel.add(master_badge_Label);
         badges_panel.add(amateur_badge_label);
         badges_panel.add(novice_badge_label);
         this.add(badges_panel);
