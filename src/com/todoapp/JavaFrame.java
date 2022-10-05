@@ -26,8 +26,8 @@ public class JavaFrame extends JFrame implements ActionListener {
     JButton add_button;
     JButton delete_button;
     JButton badges_button;
+    JButton newbutton;
     JPanel add_panel;
-
     JavaFrame() //constructor of class Java Frame
     {
         this.setSize(920, 850);  //set size of Java Frame
@@ -89,14 +89,14 @@ public class JavaFrame extends JFrame implements ActionListener {
             task=JOptionPane.showInputDialog("Enter task to enter: ");
             add_task();
             JavaFrame.tasks_done= JavaFrame.tasks_done +1;
-            if(JavaFrame.tasks_done==10)
+            if(JavaFrame.tasks_done>=10)
             {
                 UserBadges.displaybadge_10();
             }
         }
         else if (e.getSource()==delete_button)  //if delete button is selected
         {
-            System.out.println("Delete Button Activated.");
+            newbutton.setVisible(false);
         }
         else if(e.getSource()==badges_button) //if badges button is selected
         {
@@ -106,8 +106,8 @@ public class JavaFrame extends JFrame implements ActionListener {
 
     public void add_task()
     {
-        JButton newbutton = new JButton(task);
-        newbutton.setBounds(0,JavaFrame.y_coordinate,350,100);
+        newbutton = new JButton(task);
+        newbutton.setBounds(0,JavaFrame.y_coordinate,770,100);
         JavaFrame.y_coordinate=JavaFrame.y_coordinate+100;
         add_panel.add(newbutton);
         add_panel.revalidate();
