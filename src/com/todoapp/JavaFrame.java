@@ -27,6 +27,7 @@ public class JavaFrame extends JFrame implements ActionListener {
     JButton delete_button;
     JButton badges_button;
     JButton newbutton;
+    JButton about_page;
     JPanel add_panel;
     JavaFrame() //constructor of class Java Frame
     {
@@ -58,6 +59,10 @@ public class JavaFrame extends JFrame implements ActionListener {
         badges_button.setBounds(20,200,70,70); // placing button on option panel
         badges_button.addActionListener(this); // adding action listener to button
 
+        about_page = new JButton("About Page");
+        about_page.setBounds(20,290,70,70);
+        about_page.addActionListener(this);
+
         title_label = new JLabel(); //create instance of JLabel
         title_label.setText("Get More Done with Digital Intelligence!"); //set text to JLabel
         title_label.setFont(new Font("Sans serif", Font.BOLD, 25)); // set font of Jlabel
@@ -67,6 +72,7 @@ public class JavaFrame extends JFrame implements ActionListener {
         option_panel.add(add_button); //adding add button to option panel
         option_panel.add(delete_button); //adding delete button to option panel
         option_panel.add(badges_button); //adding badges button to option panel
+        option_panel.add(about_page); //adding about page to option panel
 
         add_panel = new JPanel();
         add_panel.setBounds(0,100,770,750);
@@ -102,12 +108,17 @@ public class JavaFrame extends JFrame implements ActionListener {
         {
             new UserBadges();
         }
+        else if(e.getSource()==about_page)
+        {
+            About about = new About();
+        }
     }
 
     public void add_task()
     {
         newbutton = new JButton(task);
         newbutton.setBounds(0,JavaFrame.y_coordinate,770,100);
+        newbutton.setFont(new Font("Arial",Font.PLAIN,25));
         JavaFrame.y_coordinate=JavaFrame.y_coordinate+100;
         add_panel.add(newbutton);
         add_panel.revalidate();
