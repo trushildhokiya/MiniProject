@@ -65,7 +65,7 @@ public class JavaFrame extends JFrame implements ActionListener {
 
         title_label = new JLabel(); //create instance of JLabel
         title_label.setText("Get More Done with Digital Intelligence!"); //set text to JLabel
-        title_label.setFont(new Font("Sans serif", Font.BOLD, 25)); // set font of Jlabel
+        title_label.setFont(new Font("Sans serif", Font.BOLD, 25)); // set font of JLabel
 
         title_panel.add(title_label); //add title_label to title_panel
 

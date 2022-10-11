@@ -66,5 +66,4 @@ public class UserBadges extends JFrame {
             master_badge_Label.setVisible(true);
         }
     }
-
 }
