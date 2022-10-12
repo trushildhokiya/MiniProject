@@ -12,7 +12,7 @@ public class JavaFrame extends JFrame implements ActionListener {
 
     JFrame frame; //variable declaration
     String path = "Images/icon.png";
-    String add_path = "Images/plus.png";
+    String add_path = "Images/add.png";
     String delete_path = "Images/delete.jpg";
     String badges_path = "Images/badges.jpg";
     ImageIcon logo = new ImageIcon(path);
@@ -50,6 +50,8 @@ public class JavaFrame extends JFrame implements ActionListener {
         add_button = new JButton(add_logo); //creating new JButton
         add_button.setBounds(20,20,70,70); //placing button on option panel
         add_button.addActionListener(this); //adding action listener to button
+        add_button.setBackground(Color.white);
+        add_button.setOpaque(true);
 
         delete_button = new JButton(delete_logo); //creating new JButton
         delete_button.setBounds(20,110,70,70); //placing button on option panel
