@@ -23,7 +23,6 @@ public class UserBadges extends JFrame {
 
         badges_panel= new JPanel();
         badges_panel.setLayout(null);
-        badges_panel.setBackground(new Color(100,120,144));
         badges_panel.setBounds(0,0,800,200);
 
         novice_badge_label = new JLabel();
