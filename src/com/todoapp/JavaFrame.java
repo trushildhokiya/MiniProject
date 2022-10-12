@@ -28,7 +28,9 @@ public class JavaFrame extends JFrame implements ActionListener {
     JButton add_button;
     JButton delete_button;
     JButton badges_button;
-    JButton newbutton;
+//    JButton newbutton;
+
+    JCheckBox checkbox;
     JButton about_page;
     JPanel add_panel;
     JLabel add_label;
@@ -113,7 +115,8 @@ public class JavaFrame extends JFrame implements ActionListener {
         add_panel = new JPanel();
         add_panel.setBounds(0,100,770,750);
         add_panel.setBackground(new Color(255, 248, 234));
-        add_panel.setLayout(null);
+        add_panel.setLayout(new BoxLayout(add_panel,BoxLayout.Y_AXIS));
+
 
         this.add(add_panel);
         this.add(option_panel); //adding option panel to frame
@@ -138,7 +141,7 @@ public class JavaFrame extends JFrame implements ActionListener {
         }
         else if (e.getSource()==delete_button)  //if delete button is selected
         {
-            newbutton.setVisible(false);
+            checkbox.setVisible(false);
         }
         else if(e.getSource()==badges_button) //if badges button is selected
         {
@@ -152,11 +155,12 @@ public class JavaFrame extends JFrame implements ActionListener {
 
     public void add_task()
     {
-        newbutton = new JButton(task);
-        newbutton.setBounds(0,JavaFrame.y_coordinate,770,100);
-        newbutton.setFont(new Font("Arial",Font.PLAIN,25));
+        checkbox = new JCheckBox();
+        checkbox.setBounds(0,JavaFrame.y_coordinate,770,100);
+        checkbox.setFont(new Font("Arial",Font.BOLD,25));
+        checkbox.setText(task);
         JavaFrame.y_coordinate=JavaFrame.y_coordinate+100;
-        add_panel.add(newbutton);
+        add_panel.add(checkbox);
         add_panel.revalidate();
         add_panel.repaint();
     }
