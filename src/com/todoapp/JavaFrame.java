@@ -15,10 +15,12 @@ public class JavaFrame extends JFrame implements ActionListener {
     String add_path = "Images/add.png";
     String delete_path = "Images/delete.jpg";
     String badges_path = "Images/badges.jpg";
+    String about_path = "Images/about.png";
     ImageIcon logo = new ImageIcon(path);
     ImageIcon add_logo = new ImageIcon(add_path);
     ImageIcon delete_logo = new ImageIcon(delete_path);
     ImageIcon badges_logo = new ImageIcon(badges_path);
+    ImageIcon about_logo = new ImageIcon(about_path);
     JPanel title_panel;
     JPanel option_panel;
     JLabel title_label;
@@ -29,6 +31,10 @@ public class JavaFrame extends JFrame implements ActionListener {
     JButton newbutton;
     JButton about_page;
     JPanel add_panel;
+    JLabel add_label;
+    JLabel delete_label;
+    JLabel badges_label;
+    JLabel about_label;
     JavaFrame() //constructor of class Java Frame
     {
         this.setSize(920, 850);  //set size of Java Frame
@@ -53,16 +59,30 @@ public class JavaFrame extends JFrame implements ActionListener {
         add_button.setBackground(Color.white);
         add_button.setOpaque(true);
 
+        add_label= new JLabel("Add task",SwingConstants.CENTER);
+        add_label.setBounds(20,93,70,20);
+        add_label.setFont(new Font("Arial",Font.BOLD,15));
+
         delete_button = new JButton(delete_logo); //creating new JButton
-        delete_button.setBounds(20,110,70,70); //placing button on option panel
+        delete_button.setBounds(20,130,70,70); //placing button on option panel
         delete_button.addActionListener(this); //adding action listener to button
 
+        delete_label= new JLabel("Delete task",SwingConstants.CENTER);
+        delete_label.setBounds(13,207,83,15);
+        delete_label.setFont(new Font("Arial",Font.BOLD,15));
+
         badges_button= new JButton(badges_logo); //creating new JButton
-        badges_button.setBounds(20,200,70,70); // placing button on option panel
+        badges_button.setBounds(20,250,70,70); // placing button on option panel
         badges_button.addActionListener(this); // adding action listener to button
 
+        badges_label= new JLabel("Badges",SwingConstants.CENTER);
+        badges_label.setBounds(20,330,80,15);
+        badges_label.setFont(new Font("Arial",Font.BOLD,15));
+
         about_page = new JButton("About Page");
-        about_page.setBounds(20,290,70,70);
+        about_page.setIcon(about_logo);
+        about_page.setBounds(20,360,70,70);
+        about_page.setBackground(Color.white);
         about_page.addActionListener(this);
 
         title_label = new JLabel(); //create instance of JLabel
@@ -71,6 +91,9 @@ public class JavaFrame extends JFrame implements ActionListener {
 
         title_panel.add(title_label); //add title_label to title_panel
 
+        option_panel.add(add_label); //adding add_label to option_panel
+        option_panel.add(delete_label); //adding delete label to option panel
+        option_panel.add(badges_label);
         option_panel.add(add_button); //adding add button to option panel
         option_panel.add(delete_button); //adding delete button to option panel
         option_panel.add(badges_button); //adding badges button to option panel
