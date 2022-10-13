@@ -17,7 +17,7 @@ public class UserBadges extends JFrame {
     UserBadges()
     {
 
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setSize(800,800);
         this.setLayout(null);
 

@@ -178,9 +178,8 @@ public class JavaFrame extends JFrame implements ActionListener, ItemListener {
         {
             if(checkbox[cIs].isSelected()){
                 checkbox[cIs].setBackground(Color.GREEN);
-                break;
             }
         }
-        //end of for
+        //end of for loop
     }
 }

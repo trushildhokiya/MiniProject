@@ -19,6 +19,7 @@ public class FirstPage extends JFrame implements ActionListener {
         this.setTitle("Welcome to Digital Diary");
         this.setSize(920,850);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setResizable(false);
         this.setLayout(new FlowLayout());
 
         panel_1 = new JPanel();
