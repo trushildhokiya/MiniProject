@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class FirstPage extends JFrame implements ActionListener {
-    JFrame firstPage;
+    public JFrame firstPage;
     JPanel panel_1;
     JLabel label_1;
     JButton goToMain;
@@ -59,6 +59,7 @@ public class FirstPage extends JFrame implements ActionListener {
         if(e.getSource()==goToMain)
         {
             new JavaFrame();
+            dispose();
         }
     }
 }

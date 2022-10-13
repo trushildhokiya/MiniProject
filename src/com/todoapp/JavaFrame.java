@@ -4,9 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
-public class JavaFrame extends JFrame implements ActionListener {
-    static int y_coordinate=0;
+public class JavaFrame extends JFrame implements ActionListener, ItemListener {
+    static int checkbox_counter_add=0;
+    static int getCheckbox_counter_delete=0;
     String task;
     public static int tasks_done =0;
 
@@ -30,7 +33,7 @@ public class JavaFrame extends JFrame implements ActionListener {
     JButton badges_button;
 //    JButton newbutton;
 
-    JCheckBox checkbox;
+    JCheckBox[] checkbox=new JCheckBox[100];
     JButton about_page;
     JPanel add_panel;
     JLabel add_label;
@@ -124,6 +127,7 @@ public class JavaFrame extends JFrame implements ActionListener {
 
         this.setResizable(false); //don't allow to expand screen
         this.setVisible(true); //actually display JFrame on device
+
     }
 
     //Action listener unimplemented methods
@@ -141,7 +145,8 @@ public class JavaFrame extends JFrame implements ActionListener {
         }
         else if (e.getSource()==delete_button)  //if delete button is selected
         {
-            checkbox.setVisible(false);
+            checkbox[getCheckbox_counter_delete].setVisible(false);
+            getCheckbox_counter_delete++;
         }
         else if(e.getSource()==badges_button) //if badges button is selected
         {
@@ -155,13 +160,27 @@ public class JavaFrame extends JFrame implements ActionListener {
 
     public void add_task()
     {
-        checkbox = new JCheckBox();
-        checkbox.setBounds(0,JavaFrame.y_coordinate,770,100);
-        checkbox.setFont(new Font("Arial",Font.BOLD,25));
-        checkbox.setText(task);
-        JavaFrame.y_coordinate=JavaFrame.y_coordinate+100;
-        add_panel.add(checkbox);
+        checkbox[checkbox_counter_add] = new JCheckBox();
+        //checkbox[checkbox_counter_add].setBounds(0,JavaFrame.y_coordinate,770,100);
+        checkbox[checkbox_counter_add].setFont(new Font("Arial",Font.BOLD,25));
+        checkbox[checkbox_counter_add].setText(task);
+        checkbox[checkbox_counter_add].addItemListener(this);
+//        JavaFrame.y_coordinate=JavaFrame.y_coordinate+100;
+        add_panel.add(checkbox[checkbox_counter_add]);
+        checkbox_counter_add++;
         add_panel.revalidate();
         add_panel.repaint();
+    }
+
+    @Override
+    public void itemStateChanged(ItemEvent e) {
+        for(int cIs=0;cIs<100;cIs++) //cis stands for CheckIfSelected
+        {
+            if(checkbox[cIs].isSelected()){
+                checkbox[cIs].setBackground(Color.GREEN);
+                break;
+            }
+        }
+        //end of for
     }
 }
