@@ -7,47 +7,52 @@ import java.awt.event.ActionListener;
 
 public class FirstPage extends JFrame implements ActionListener {
     public JFrame firstPage;
-    JPanel panel_1;
-    JLabel label_1;
+    String path="Images/somaiya-logo.png";
+    ImageIcon slogo=new ImageIcon(path);
+    JPanel First_page_panel;
+    JLabel title_label;
+    JLabel guided;
+    JButton logo_btn ;
     JButton goToMain;
-    JPanel proceed_panel;
-    String text="Weclome" + "<br>" + "<br>" + "<br>" +
-            "To use our Software please click on below Button" + "<br>" + "<br>" + "<br>" +"<br>" +
-            "Developer's: BESTOF4";
     FirstPage()
     {
-        this.setTitle("Welcome to Digital Diary");
+        this.setTitle("Welcome Page");
         this.setSize(920,850);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
-        this.setLayout(new FlowLayout());
 
-        panel_1 = new JPanel();
-        panel_1.setPreferredSize(new Dimension(920,850));
-        panel_1.setBackground(new Color(255, 247, 233));
-        panel_1.setLayout(new FlowLayout());
+        First_page_panel = new JPanel();
+        First_page_panel.setSize(920,850);
+        First_page_panel.setBackground(new Color(252, 247, 232));
+        First_page_panel.setLayout(null);
 
-        label_1= new JLabel();
-        label_1.setSize(500,500);
-        label_1.setFont(new Font("Arial",Font.BOLD,25));
-        label_1.setBackground(new Color(255, 247, 233));
-        label_1.setForeground(Color.BLACK);
-        label_1.setText("<html><div style='text-align: center;'>" + text + "</div></html>");
-        label_1.setOpaque(true); //display background color of JLabel
+        logo_btn=new JButton(slogo);
+        logo_btn.setBounds(0,0,300,86);
+        logo_btn.setBackground(new Color(252,247,232));
+        logo_btn.setBorder(null);
+        logo_btn.setBorderPainted(false);
 
-        goToMain = new JButton();
-        goToMain.setText("Click to Proceed");
+        title_label= new JLabel("DIGITAL DIARY");
+        title_label.setFont(new Font("Verdana",Font.BOLD,40));
+        title_label.setBounds(350,0,300,100);
+        title_label.setSize(600,100);
+
+        guided = new JLabel("<html><center>Guided by<br>Prof. Shubdha Labde</center></html>");
+        guided.setBounds(400,600,150,150);
+
+        goToMain = new JButton("Enter Digital Diary");
+        goToMain.setBounds(345,500,250,100);
+        goToMain.setBackground(new Color(235, 198, 178));
+        goToMain.setBorder(null);
         goToMain.addActionListener(this);
-        goToMain.setFont(new Font("Arial",Font.BOLD,25));
+        goToMain.setFont(new Font("Arial",Font.PLAIN,20));
 
-        proceed_panel = new JPanel();
-        proceed_panel.setSize(100,100);
-        proceed_panel.setBackground(Color.GREEN);
+        First_page_panel.add(goToMain);
+        First_page_panel.add(guided);
+        First_page_panel.add(logo_btn);
+        First_page_panel.add(title_label);
 
-        panel_1.add(proceed_panel);
-        panel_1.add(label_1);
-        panel_1.add(goToMain);
-        this.add(panel_1);
+        this.add(First_page_panel);
         this.setVisible(true);
     }
 
