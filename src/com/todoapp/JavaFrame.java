@@ -6,11 +6,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.Calendar;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class JavaFrame extends JFrame implements ActionListener, ItemListener {
     static int checkbox_counter_add=0;
     static int getCheckbox_counter_delete=0;
     String task;
+    public static String[] task_end_time= new String[100];
+    static int timer_count=0;
     public static int tasks_done =0;
 
     JFrame frame; //variable declaration
@@ -33,7 +38,7 @@ public class JavaFrame extends JFrame implements ActionListener, ItemListener {
     JButton badges_button;
 //    JButton newbutton;
 
-    JCheckBox[] checkbox=new JCheckBox[100];
+    static JCheckBox[] checkbox=new JCheckBox[100];
     JButton about_page;
     JPanel add_panel;
     JLabel add_label;
@@ -124,7 +129,6 @@ public class JavaFrame extends JFrame implements ActionListener, ItemListener {
         this.add(add_panel);
         this.add(option_panel); //adding option panel to frame
         this.add(title_panel); //adding title_panel to JFrame
-
         this.setResizable(false); //don't allow to expand screen
         this.setVisible(true); //actually display JFrame on device
 
@@ -135,8 +139,11 @@ public class JavaFrame extends JFrame implements ActionListener, ItemListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==add_button) //if add button is selected
         {
-            task=JOptionPane.showInputDialog("Enter task to enter: ");
+            task=JOptionPane.showInputDialog("Enter your task: ");
+            task_end_time[timer_count]=JOptionPane.showInputDialog("Enter end time of task(hh:mm:ss)");
+            timer_count=timer_count+1;
             add_task();
+            main(null);
             JavaFrame.tasks_done= JavaFrame.tasks_done +1;
             UserBadges.displaybadge_10();
         }
@@ -179,4 +186,31 @@ public class JavaFrame extends JFrame implements ActionListener, ItemListener {
         }
         //end of for loop
     }
+
+    public static void main(String[] args) {
+        String hour=task_end_time[0].substring(0,2);
+        String minute = task_end_time[0].substring(3,5);
+        String seconds = task_end_time[0].substring(6,8);
+        int hour_int=Integer.parseInt(hour);
+        int minute_int=Integer.parseInt(minute);
+        int seconds_int = Integer.parseInt(seconds);
+        Timer timer = new Timer();
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                JOptionPane.showMessageDialog(null,"You failed to complete your task");
+                checkbox[0].setBackground(Color.RED);
+            }
+        };
+        Calendar date = Calendar.getInstance();
+        date.set(Calendar.YEAR,2022);
+        date.set(Calendar.MONTH,Calendar.OCTOBER);
+        date.set(Calendar.DAY_OF_MONTH,15);
+        date.set(Calendar.HOUR_OF_DAY,hour_int);
+        date.set(Calendar.MINUTE,minute_int);
+        date.set(Calendar.SECOND,seconds_int);
+
+        timer.schedule(task,date.getTime());
+    }
+
 }

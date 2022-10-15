@@ -23,10 +23,13 @@ public class UserBadges extends JFrame {
         this.setSize(800,800);
         this.setTitle("Your Badges");
         this.setLayout(null);
+        this.setResizable(false);
+        this.getContentPane().setBackground(new Color(250, 242, 222));
 
         badges_panel= new JPanel();
         badges_panel.setLayout(null);
         badges_panel.setBounds(0,0,800,200);
+        badges_panel.setBackground(new Color(250, 242, 222));
 
         novice_badge_label = new JLabel();
         novice_badge_label.setBounds(50,50,130,120);
@@ -62,19 +65,19 @@ public class UserBadges extends JFrame {
      static public void displaybadge_10()
     {
 
-        if(JavaFrame.tasks_done == 10)
+        if(JavaFrame.tasks_done >= 10)
         {
             novice_badge_label.setVisible(true);
         }
-        if(JavaFrame.tasks_done==25)
+        if(JavaFrame.tasks_done>=25)
         {
             amateur_badge_label.setVisible(true);
         }
-        if(JavaFrame.tasks_done==50)
+        if(JavaFrame.tasks_done>=50)
         {
             master_badge_Label.setVisible(true);
         }
-        if(JavaFrame.tasks_done==75)
+        if(JavaFrame.tasks_done>=75)
         {
             victory_badge_label.setVisible(true);
         }
