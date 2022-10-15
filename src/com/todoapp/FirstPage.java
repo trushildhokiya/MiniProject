@@ -39,8 +39,9 @@ public class FirstPage extends JFrame implements ActionListener {
 
         guided = new JLabel("<html><center>Guided by<br>Prof. Shubdha Labde</center></html>");
         guided.setBounds(400,600,150,150);
+        guided.setFont(new Font("Sans Serif",Font.PLAIN,15));
 
-        goToMain = new JButton("Enter Digital Diary");
+        goToMain = new JButton("Start using Software");
         goToMain.setBounds(345,500,250,100);
         goToMain.setBackground(new Color(235, 198, 178));
         goToMain.setBorder(null);
