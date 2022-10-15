@@ -138,10 +138,7 @@ public class JavaFrame extends JFrame implements ActionListener, ItemListener {
             task=JOptionPane.showInputDialog("Enter task to enter: ");
             add_task();
             JavaFrame.tasks_done= JavaFrame.tasks_done +1;
-            if(JavaFrame.tasks_done>=10)
-            {
-                UserBadges.displaybadge_10();
-            }
+            UserBadges.displaybadge_10();
         }
         else if (e.getSource()==delete_button)  //if delete button is selected
         {

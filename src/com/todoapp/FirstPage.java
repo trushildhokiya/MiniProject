@@ -12,6 +12,7 @@ public class FirstPage extends JFrame implements ActionListener {
     JPanel First_page_panel;
     JLabel title_label;
     JLabel guided;
+    JLabel product_details;
     JButton logo_btn ;
     JButton goToMain;
     FirstPage()
@@ -37,6 +38,11 @@ public class FirstPage extends JFrame implements ActionListener {
         title_label.setBounds(350,0,300,100);
         title_label.setSize(600,100);
 
+        product_details= new JLabel("<html><center>A Desktop app for Scheduling your task<br><br>All your task at one place <br>Reminder when you forgot your task</center></html>");
+        product_details.setFont(new Font("Serif",Font.PLAIN,30));
+        product_details.setBounds(220,100,650,300);
+        product_details.setSize(650,300);
+
         guided = new JLabel("<html><center>Guided by<br>Prof. Shubdha Labde</center></html>");
         guided.setBounds(400,600,150,150);
         guided.setFont(new Font("Sans Serif",Font.PLAIN,15));
@@ -48,8 +54,10 @@ public class FirstPage extends JFrame implements ActionListener {
         goToMain.addActionListener(this);
         goToMain.setFont(new Font("Arial",Font.PLAIN,20));
 
+//        adding content to First page Panel
         First_page_panel.add(goToMain);
         First_page_panel.add(guided);
+        First_page_panel.add(product_details);
         First_page_panel.add(logo_btn);
         First_page_panel.add(title_label);
 
