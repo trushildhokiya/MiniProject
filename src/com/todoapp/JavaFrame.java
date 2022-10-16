@@ -14,8 +14,10 @@ public class JavaFrame extends JFrame implements ActionListener, ItemListener {
     static int checkbox_counter_add=0;
     static int getCheckbox_counter_delete=0;
     String task;
+    static int n_counter=0;
     public static String[] task_end_time= new String[100];
     static int timer_count=0;
+    static int reminder_counter=-1;
     public static int tasks_done =0;
 
     JFrame frame; //variable declaration
@@ -169,7 +171,6 @@ public class JavaFrame extends JFrame implements ActionListener, ItemListener {
         checkbox[checkbox_counter_add].setFont(new Font("Arial",Font.BOLD,25));
         checkbox[checkbox_counter_add].setText(task);
         checkbox[checkbox_counter_add].addItemListener(this);
-//        JavaFrame.y_coordinate=JavaFrame.y_coordinate+100;
         add_panel.add(checkbox[checkbox_counter_add]);
         checkbox_counter_add++;
         add_panel.revalidate();
@@ -188,9 +189,10 @@ public class JavaFrame extends JFrame implements ActionListener, ItemListener {
     }
 
     public static void main(String[] args) {
-        String hour=task_end_time[0].substring(0,2);
-        String minute = task_end_time[0].substring(3,5);
-        String seconds = task_end_time[0].substring(6,8);
+        ++reminder_counter;
+        String hour=task_end_time[reminder_counter].substring(0,2);
+        String minute = task_end_time[reminder_counter].substring(3,5);
+        String seconds = task_end_time[reminder_counter].substring(6,8);
         int hour_int=Integer.parseInt(hour);
         int minute_int=Integer.parseInt(minute);
         int seconds_int = Integer.parseInt(seconds);
@@ -198,14 +200,20 @@ public class JavaFrame extends JFrame implements ActionListener, ItemListener {
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
-                JOptionPane.showMessageDialog(null,"You failed to complete your task");
-                checkbox[0].setBackground(Color.RED);
+                for(int i=0 ; i<=n_counter;i++){
+                    if(!checkbox[i].isSelected()) {
+                        JOptionPane.showMessageDialog(null, "You failed to complete your task");
+                        checkbox[i].setBackground(Color.RED);
+                    }
+                }
+                n_counter++;
             }
         };
+
         Calendar date = Calendar.getInstance();
         date.set(Calendar.YEAR,2022);
         date.set(Calendar.MONTH,Calendar.OCTOBER);
-        date.set(Calendar.DAY_OF_MONTH,15);
+        date.set(Calendar.DAY_OF_MONTH,16);
         date.set(Calendar.HOUR_OF_DAY,hour_int);
         date.set(Calendar.MINUTE,minute_int);
         date.set(Calendar.SECOND,seconds_int);
