@@ -22,17 +22,20 @@ public class JavaFrame extends JFrame implements ActionListener, ItemListener {
 
     JFrame frame; //variable declaration
     String path = "Images/icon.png";
+    String logo_path = "Images/todo.jpg";
     String add_path = "Images/add.png";
     String delete_path = "Images/delete.png";
     String badges_path = "Images/badges.png";
     String about_path = "Images/about.png";
     ImageIcon logo = new ImageIcon(path);
+    ImageIcon todo = new ImageIcon(logo_path);
     ImageIcon add_logo = new ImageIcon(add_path);
     ImageIcon delete_logo = new ImageIcon(delete_path);
     ImageIcon badges_logo = new ImageIcon(badges_path);
     ImageIcon about_logo = new ImageIcon(about_path);
     JPanel title_panel;
     JPanel option_panel;
+    JPanel back_panel;
     JLabel title_label;
 
     JButton add_button;
@@ -42,11 +45,13 @@ public class JavaFrame extends JFrame implements ActionListener, ItemListener {
 
     static JCheckBox[] checkbox=new JCheckBox[100];
     JButton about_page;
+
     JPanel add_panel;
     JLabel add_label;
     JLabel delete_label;
     JLabel badges_label;
     JLabel about_label;
+
     JavaFrame() //constructor of class Java Frame
     {
         this.setSize(920, 850);  //set size of Java Frame
@@ -108,8 +113,9 @@ public class JavaFrame extends JFrame implements ActionListener, ItemListener {
         about_label.setFont(new Font("Arial",Font.BOLD,15));
 
         title_label = new JLabel(); //create instance of JLabel
-        title_label.setText("Get More Done with Digital Intelligence!"); //set text to JLabel
+        title_label.setText("<html><center><br>Get More Done with Digital Intelligence!</center></html>"); //set text to JLabel
         title_label.setFont(new Font("Sans serif", Font.BOLD, 25)); // set font of JLabel
+        title_label.setForeground(new Color(139,69,19));
 
         title_panel.add(title_label); //add title_label to title_panel
 
@@ -213,7 +219,7 @@ public class JavaFrame extends JFrame implements ActionListener, ItemListener {
         Calendar date = Calendar.getInstance();
         date.set(Calendar.YEAR,2022);
         date.set(Calendar.MONTH,Calendar.OCTOBER);
-        date.set(Calendar.DAY_OF_MONTH,16);
+        date.set(Calendar.DAY_OF_MONTH,18);
         date.set(Calendar.HOUR_OF_DAY,hour_int);
         date.set(Calendar.MINUTE,minute_int);
         date.set(Calendar.SECOND,seconds_int);

@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class FirstPage extends JFrame implements ActionListener {
+
     public JFrame firstPage;
     String path="Images/somaiya-logo.png";
     ImageIcon slogo=new ImageIcon(path);
@@ -38,16 +39,18 @@ public class FirstPage extends JFrame implements ActionListener {
         title_label.setBounds(350,0,300,100);
         title_label.setSize(600,100);
 
-        product_details= new JLabel("<html><center>A Desktop app for Scheduling your task<br><br>All your task at one place <br>Reminder when you forgot your task</center></html>");
+        product_details= new JLabel("<html><center><br>Welcome to Digital Diary!<br>A Desktop app for Scheduling your task<br>Add" +
+                                         " all your tasks at one place & organize your time in a productive manner <br>Receive reminders when you forget your task" +
+                                         "<br>Completion of tasks unlocks badges which motivates you to work more</center></html>");
         product_details.setFont(new Font("Serif",Font.PLAIN,30));
-        product_details.setBounds(220,100,650,300);
+        product_details.setBounds(150,120,555,325);
         product_details.setSize(650,300);
 
         guided = new JLabel("<html><center>Guided by<br>Prof. Shubdha Labde</center></html>");
         guided.setBounds(400,600,150,150);
         guided.setFont(new Font("Sans Serif",Font.PLAIN,15));
 
-        goToMain = new JButton("Start using Software");
+        goToMain = new JButton("Start Listing Your Tasks");
         goToMain.setBounds(345,500,250,100);
         goToMain.setBackground(new Color(235, 198, 178));
         goToMain.setBorder(null);
