@@ -151,9 +151,11 @@ public class JavaFrame extends JFrame implements ActionListener, ItemListener {
             task_end_time[timer_count]=JOptionPane.showInputDialog("Enter end time of task(hh:mm:ss)");
             timer_count=timer_count+1;
             add_task();
+            //JavaFrame.tasks_done= JavaFrame.tasks_done +1;
+
             main(null);
-            JavaFrame.tasks_done= JavaFrame.tasks_done +1;
-            UserBadges.displaybadge_10();
+
+
         }
         else if (e.getSource()==delete_button)  //if delete button is selected
         {
@@ -172,6 +174,8 @@ public class JavaFrame extends JFrame implements ActionListener, ItemListener {
 
     public void add_task()
     {
+        JavaFrame.tasks_done= JavaFrame.tasks_done +1;
+        UserBadges.displaybadge_10();
         checkbox[checkbox_counter_add] = new JCheckBox();
         //checkbox[checkbox_counter_add].setBounds(0,JavaFrame.y_coordinate,770,100);
         checkbox[checkbox_counter_add].setFont(new Font("Arial",Font.BOLD,25));
