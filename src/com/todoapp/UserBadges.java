@@ -26,6 +26,7 @@ public class UserBadges extends JFrame {
         this.setResizable(false);
         this.getContentPane().setBackground(new Color(250, 242, 222));
 
+
         badges_panel= new JPanel();
         badges_panel.setLayout(null);
         badges_panel.setBounds(0,0,800,200);
