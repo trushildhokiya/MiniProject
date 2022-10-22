@@ -159,8 +159,11 @@ public class JavaFrame extends JFrame implements ActionListener, ItemListener {
         }
         else if (e.getSource()==delete_button)  //if delete button is selected
         {
-            checkbox[getCheckbox_counter_delete].setVisible(false);
-            getCheckbox_counter_delete++;
+            for(int i=0;i<101;i++){
+                if(checkbox[i].isSelected()){
+                    checkbox[i].setVisible(false);
+                }
+            }
         }
         else if(e.getSource()==badges_button) //if badges button is selected
         {
