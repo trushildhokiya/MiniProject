@@ -12,7 +12,6 @@ public class FirstPage extends JFrame implements ActionListener {
     ImageIcon slogo=new ImageIcon(path);
     JPanel First_page_panel;
     JLabel title_label;
-    JLabel guided;
     JLabel product_details;
     JButton logo_btn ;
     JButton goToMain;
@@ -43,12 +42,8 @@ public class FirstPage extends JFrame implements ActionListener {
                                          " all your tasks at one place & organize your time in a productive manner <br>Receive reminders when you forget your task" +
                                          "<br>Completion of tasks unlocks badges which motivates you to work more</center></html>");
         product_details.setFont(new Font("Serif",Font.PLAIN,30));
-        product_details.setBounds(150,120,555,325);
-        product_details.setSize(650,300);
-
-        guided = new JLabel("<html><center>Guided by<br>Prof. Shubdha Labde</center></html>");
-        guided.setBounds(400,600,150,150);
-        guided.setFont(new Font("Sans Serif",Font.PLAIN,15));
+        product_details.setBounds(150,120,555,340);
+        product_details.setSize(650,340);
 
         goToMain = new JButton("Start Listing Your Tasks");
         goToMain.setBounds(345,500,250,100);
@@ -59,7 +54,6 @@ public class FirstPage extends JFrame implements ActionListener {
 
 //        adding content to First page Panel
         First_page_panel.add(goToMain);
-        First_page_panel.add(guided);
         First_page_panel.add(product_details);
         First_page_panel.add(logo_btn);
         First_page_panel.add(title_label);

@@ -225,8 +225,8 @@ public class JavaFrame extends JFrame implements ActionListener, ItemListener {
 
         Calendar date = Calendar.getInstance();
         date.set(Calendar.YEAR,2022);
-        date.set(Calendar.MONTH,Calendar.OCTOBER);
-        date.set(Calendar.DAY_OF_MONTH,18);
+        date.set(Calendar.MONTH,Calendar.NOVEMBER);
+        date.set(Calendar.DAY_OF_MONTH,15);
         date.set(Calendar.HOUR_OF_DAY,hour_int);
         date.set(Calendar.MINUTE,minute_int);
         date.set(Calendar.SECOND,seconds_int);
